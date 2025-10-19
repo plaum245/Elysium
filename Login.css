@@ -1,0 +1,361 @@
+@font-face {
+  font-family: 'Warhaven_Regular';         /* 'Warhaven_Regular'라는 커스텀 폰트 설정 */
+  src: url('./font/Warhaven_Regular.ttf'); /* 폰트 파일의 경로 지정 */
+}
+
+@font-face {
+  font-family: 'Warhaven_Bold';         /* 'Warhaven_Bold'라는 커스텀 폰트 설정 */
+  src: url('./font/Warhaven_Bold.ttf'); /* 폰트 파일의 경로 지정 */
+}
+
+
+
+* {
+  margin: 0;                       /* 모든 요소의 기본 여백을 0으로 설정 */
+  font-family: 'Warhaven_Regular'; /* 기본 폰트를 'Warhaven_Regular'로 설정 */
+  text-decoration: none;           /* 모든 텍스트의 밑줄 등 텍스트 장식을 제거 */
+  color: white;                  /* 모든 텍스트 색상을 흰색으로 설정 */
+
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden; /* HTML 요소의 스크롤을 숨김 */
+}
+
+html, body {
+  width: 100%;  /* HTML 및 body 요소의 너비를 100%로 설정 */
+  height: 100%; /* HTML 및 body 요소의 높이를 100%로 설정 */
+}
+
+body {
+  margin: 0;                /* body 요소의 기본 여백을 0으로 설정 */
+  background-color: #000000; /* body의 배경색을 검은색으로 설정 */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* height: 100vh; */
+}
+
+:root {
+  --accent-color: rgb(68, 68, 255);        /* 강조 색상을 파란색으로 설정 */
+  --text-color: white;                     /* 텍스트 색상을 흰색으로 설정 */
+  --card-width: 300px;                       /* 카드 요소의 기본 너비를 300px로 설정 */
+  --card-height: 300px;                      /* 카드 요소의 기본 높이를 300px로 설정 */
+  --card-transition-duration: 800ms;         /* 카드 전환 애니메이션 지속 시간을 800ms로 설정 */
+  --card-transition-easing: ease;            /* 카드 전환 애니메이션의 이징을 'ease'로 설정 */
+  --back-img: src("images/second-img.jpeg"); /* 배경 이미지 경로 설정 */
+}
+
+
+/* --------------navbar------------------ */
+.navbar {
+  position: fixed;                /* 페이지 상단에 고정됨 */
+  top: 0;                         /* 상단에 위치 */
+  left: 0;                        /* 왼쪽에 위치 */
+  right: 0;                       /* 오른쪽에 위치 */
+  z-index: 2;                     /* 다른 요소들보다 위에 표시 */
+  display: flex;                  /* 수평 정렬 */
+  justify-content: space-between; /* 요소들 사이에 공간을 균등하게 배치 */
+  align-items: center;            /* 요소들을 수직 가운데 정렬 */
+  padding: 8px 12px;              /* 안쪽 여백 설정 */
+  margin-left: 3%;                /* 왼쪽 바깥 여백 설정 */
+  margin-right: 3%;               /* 오른쪽 바깥 여백 설정 */
+}
+
+.navbar a {
+  text-decoration: none;    /* 링크의 밑줄 제거 */
+  font-size: 100%;          /* 폰트 크기 기본값 */
+  color: var(--text-color); /* 텍스트 색상 지정 */
+}
+
+.navbar__logo {
+  padding-left: 2%; /* 왼쪽 안쪽 여백 설정 */
+}
+
+.navbar__menu {
+  list-style: none; /* 리스트 스타일 제거 */
+  display: flex;    /* 리스트를 수평으로 배치 */
+  margin: 0;        /* 바깥 여백 제거 */
+  margin-left: 13%; /* 왼쪽 바깥 여백 설정 */
+  padding-left: 0;  /* 왼쪽 안쪽 여백 제거 */
+}
+
+.navbar__menu li {
+  padding: 8px 30px; /* 리스트 아이템에 안쪽 여백 설정 */
+  opacity: 0.75;     /* 리스트 아이템의 불투명도 설정 */
+}
+
+.navbar__menu li:hover {
+  opacity: 1; /* 마우스를 올렸을 때 불투명도 설정 */
+}
+
+.navbar__menu li::before {
+  transition: 300ms;         /* 전환 시간 설정 */
+  height: 3px;               /* 높이 설정 */
+  content: "";               /* 가상 요소 생성 */
+  position: absolute;        /* 절대 위치 설정 */
+  background-color: white; /* 배경색 흰색으로 설정 */
+}
+
+.navbar__menu li::before {
+  width: 0%;   /* 가로 크기 설정 */
+  bottom: 3px; /* 아래쪽 위치 설정 */
+}
+
+.navbar__menu li:hover::before {
+  width: 5%; /* 마우스를 올렸을 때 가로 크기 설정 */
+}
+
+.navbar__icons {
+  list-style: none;         /* 리스트 스타일 제거 */
+  display: flex;            /* 아이콘 리스트를 수평으로 배치 */
+  color: var(--text-color); /* 텍스트 색상 설정 */
+  margin: 0;                /* 바깥 여백 제거 */
+  padding-left: 0;          /* 왼쪽 안쪽 여백 제거 */
+}
+
+.navbar__icons li {
+  padding: 8px 12px; /* 아이콘 리스트 아이템에 안쪽 여백 설정 */
+  margin: 0;         /* 바깥 여백 제거 */
+  opacity: 0.75;     /* 불투명도 설정 */
+}
+
+.navbar__icons img {
+  padding-top: 3px;   /* 이미지의 위쪽 여백 설정 */
+  padding-right: 5px; /* 이미지의 오른쪽 여백 설정 */
+}
+
+.navbar__icons li:hover {
+  opacity: 1; /* 마우스를 올렸을 때 불투명도 설정 */
+}
+
+/* ------------------------------------- */
+
+/* --------------article------------------ */
+.content {
+	width: 100%;        /* 너비를 100%로 설정 */
+	height: 100%;       /* 높이를 100%로 설정 */
+	position: relative; /* 부모 요소 기준으로 위치를 상대적으로 설정 */
+	overflow: hidden;   /* 내용이 넘칠 경우 숨김 */
+}
+
+.scroll_on {
+	opacity: 0;         /* 투명도 0으로 설정 */
+	transition: all 2s; /* 모든 속성에 2초 동안 전환 효과 적용 */
+}
+
+.scroll_on.active {
+	opacity: 1 !important; /* active 클래스가 있을 때 불투명도 1로 설정, 다른 규칙보다 우선 */
+}
+/* ------------------------------------- */
+
+/*---------------Login-----------------*/
+.container{
+  background-color: #fff;                      /* 배경색을 흰색으로 설정 */
+  border-radius: 30px;                           /* 모서리를 30px로 둥글게 설정 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);  /* 그림자 효과 추가 (x, y 방향 5px, 15px, 불투명도 35%) */
+  position: relative;                            /* 위치를 상대적으로 설정하여 자식 요소들의 위치를 제어 */
+  overflow: hidden;                              /* 내용이 넘칠 경우 숨김 처리 */
+  margin: 10% auto;                              /* 상하 마진 10%, 좌우 중앙 정렬 */
+  width: 768px;                                  /* 너비를 768px로 설정 */
+  max-width: 100%;                               /* 최대 너비를 화면 크기에 맞추어 100%로 설정 */
+  min-height: 480px;                             /* 최소 높이를 480px로 설정 */
+}
+
+.container p{
+  font-size: 14px;        /* 글자 크기를 14px로 설정 */
+  line-height: 20px;      /* 줄 간격을 20px로 설정 */
+  letter-spacing: 0.3px;  /* 글자 간격을 0.3px로 설정 */
+  margin: 20px 0;         /* 위 아래 마진을 20px로 설정 */
+}
+
+.container h1{
+  color: #000;  /* 제목 색상을 검정색으로 설정 */
+}
+
+.container span{
+  font-size: 12px;  /* 글자 크기를 12px로 설정 */
+}
+
+.container a{
+  color: #333;          /* 링크 텍스트 색상을 어두운 회색으로 설정 */
+  font-size: 13px;        /* 링크 글자 크기를 13px로 설정 */
+  text-decoration: none;  /* 링크의 밑줄 제거 */
+  margin: 15px 0 10px;    /* 위쪽 15px, 아래쪽 10px의 마진 설정 */
+}
+
+.container button{
+  background-color: #4339d0;    /* 버튼 배경색을 파란색으로 설정 */
+  color: #fff;                  /* 버튼 텍스트 색상을 흰색으로 설정 */
+  font-size: 12px;                /* 글자 크기를 12px로 설정 */
+  padding: 10px 45px;             /* 버튼 안쪽 여백을 위아래 10px, 좌우 45px로 설정 */
+  border: 1px solid transparent;  /* 테두리를 투명으로 설정 (나중에 변경될 수 있음) */
+  border-radius: 8px;             /* 버튼 모서리를 8px로 둥글게 설정 */
+  font-weight: 600;               /* 글자 두께를 600으로 설정 (세미볼드) */
+  letter-spacing: 0.5px;          /* 글자 간격을 0.5px로 설정 */
+  text-transform: uppercase;      /* 글자를 모두 대문자로 변환 */
+  margin-top: 10px;               /* 버튼 위쪽에 10px 마진 설정 */
+  cursor: pointer;                /* 버튼 위에 마우스를 올리면 커서가 손가락 모양으로 변경 */
+}
+
+.container button.hidden{
+  background-color: transparent;  /* 버튼 배경을 투명하게 설정 */
+  border-color: #fff;           /* 버튼 테두리 색상을 흰색으로 설정 */
+}
+
+.container form{
+  background-color: #fff;  /* 폼 배경을 흰색으로 설정 */
+  display: flex;             /* 자식 요소들을 Flexbox로 배치 */
+  align-items: center;       /* 자식 요소들을 수직 중앙 정렬 */
+  justify-content: center;   /* 자식 요소들을 수평 중앙 정렬 */
+  flex-direction: column;    /* 자식 요소들을 세로 방향으로 배치 */
+  padding: 0 40px;           /* 폼 안쪽 여백을 좌우 40px로 설정 */
+  height: 100%;              /* 폼 높이를 부모 요소의 100%로 설정 */
+}
+
+.container input{
+  background-color: #eee;  /* 입력창 배경색을 연한 회색으로 설정 */
+  border: none;              /* 입력창 테두리 제거 */
+  margin: 8px 0;             /* 위 아래 마진을 8px로 설정 */
+  padding: 10px 15px;        /* 입력창 안쪽 여백을 위아래 10px, 좌우 15px로 설정 */
+  font-size: 13px;           /* 글자 크기를 13px로 설정 */
+  border-radius: 8px;        /* 입력창 모서리를 8px로 둥글게 설정 */
+  width: 100%;               /* 입력창 너비를 100%로 설정 (부모 요소에 맞게 늘어남) */
+  outline: none;             /* 포커스 시 기본 외곽선 제거 */
+}
+
+
+.form-container{
+  position: absolute;                /* 위치를 절대값으로 설정하여 부모 요소를 기준으로 배치 */
+  top: 0;                            /* 상단에 위치하도록 설정 */
+  height: 100%;                      /* 높이를 부모 요소의 100%로 설정 */
+  transition: all 0.6s ease-in-out;  /* 모든 스타일 변화에 대해 0.6초 동안 부드럽게 변화 */
+}
+
+.sign-in{
+  left: 0;     /* 왼쪽에 위치하도록 설정 */
+  width: 50%;  /* 너비를 부모 요소의 50%로 설정 */
+  z-index: 2;  /* 다른 요소들 위에 표시되도록 z-index 설정 (위로 쌓을 때 중요) */
+}
+
+.container.active .sign-in{
+  transform: translateX(100%);  /* 'active' 클래스가 적용된 .container 요소에서, .sign-in을 오른쪽으로 100% 이동 (사라지는 효과) */
+}
+
+.sign-up{
+  left: 0;     /* 왼쪽에 위치하도록 설정 */
+  width: 50%;  /* 너비를 부모 요소의 50%로 설정 */
+  opacity: 0;  /* 처음에는 투명도 0으로 설정 (보이지 않음) */
+  z-index: 1;  /* 다른 요소들 아래에 표시되도록 z-index 설정 */
+}
+
+.container.active .sign-up{
+  transform: translateX(100%);  /* 'active' 클래스가 적용된 .container 요소에서, .sign-up을 오른쪽으로 100% 이동 */
+  opacity: 1;                   /* opacity를 1로 변경하여 완전히 보이도록 설정 */
+  z-index: 5;                   /* .sign-up 요소가 다른 요소들 위에 표시되도록 z-index 설정 */
+  animation: move 0.6s;         /* move라는 애니메이션을 0.6초 동안 실행 */
+}
+
+
+@keyframes move{
+  0%, 49.99%{      /* 애니메이션의 첫 번째 단계와 거의 끝나는 단계에서 */
+      opacity: 0;  /* 투명도 0 (완전히 보이지 않음) */
+      z-index: 1;  /* z-index가 1로 설정되어 다른 요소들 아래에 위치 */
+  }
+  50%, 100%{       /* 애니메이션이 절반 이상 진행된 후부터 끝날 때까지 */
+      opacity: 1;  /* 투명도 1로 설정하여 완전히 보이도록 */
+      z-index: 5;  /* z-index가 5로 설정되어 다른 요소들 위에 위치 */
+  }
+}
+
+.social-icons{
+  margin: 20px 0;  /* 위와 아래 여백을 20px로 설정 */
+}
+
+.social-icons a{
+  border: 1px solid #ccc;  /* 테두리 색상은 #ccc (연한 회색) */
+  border-radius: 20%;        /* 테두리의 둥글기를 20%로 설정 (원형 모양) */
+  display: inline-flex;      /* 아이템들이 가로로 나열되도록 설정 */
+  justify-content: center;   /* 가로 방향으로 중앙 정렬 */
+  align-items: center;       /* 세로 방향으로 중앙 정렬 */
+  margin: 0 3px;             /* 왼쪽과 오른쪽에 3px의 여백 추가 */
+  width: 40px;               /* 아이콘의 너비를 40px로 설정 */
+  height: 40px;              /* 아이콘의 높이를 40px로 설정 */
+}
+
+.toggle-container{          
+  position: absolute;                /* 위치를 절대값으로 설정하여 부모 요소를 기준으로 배치 */
+  top: 0;                            /* 상단에 위치하도록 설정 */
+  left: 50%;                         /* 왼쪽에서 50% 위치 (중앙 정렬) */
+  width: 50%;                        /* 너비를 부모 요소의 50%로 설정 */
+  height: 100%;                      /* 높이를 부모 요소의 100%로 설정 */
+  overflow: hidden;                  /* 넘치는 내용을 숨김 */
+  transition: all 0.6s ease-in-out;  /* 모든 스타일 변화에 대해 0.6초 동안 부드럽게 변화 */
+  border-radius: 150px 0 0 100px;    /* 테두리 모서리를 둥글게 설정 (왼쪽 상단/하단은 더 많이 둥글게) */
+  z-index: 1000;                     /* z-index가 1000으로 설정되어 다른 요소들 위에 표시됨 */
+}
+
+
+.container.active .toggle-container{
+  transform: translateX(-100%);  /* 활성화된 상태에서는 toggle-container를 왼쪽으로 이동시킴 */
+  border-radius: 0 150px 100px 0;  /* 오른쪽 모서리를 더 둥글게 설정 (기존과 반대로) */
+}
+
+.toggle{               
+  background-color: #10034e;                                  /* 배경 색상 설정 (어두운 보라색) */
+  height: 100%;                                                 /* 높이를 100%로 설정 */
+  background: linear-gradient(to right, #5c6bc0, #10034e);  /* 그라데이션 배경 설정 (왼쪽에서 오른쪽으로 보라색과 어두운 보라색) */
+  color: #fff;                                                /* 글자 색상은 흰색 */
+  position: relative;                                           /* 상대적 위치 설정 */
+  left: -100%;                                                  /* 왼쪽으로 100% 이동 (처음에는 화면 밖에 위치) */
+  height: 100%;                                                 /* 높이를 100%로 설정 */
+  width: 200%;                                                  /* 너비를 200%로 설정 (두 배 크기) */
+  transform: translateX(0);                                     /* 기본 상태에서 위치를 0으로 설정 */
+  transition: all 0.6s ease-in-out;                             /* 모든 스타일 변화에 대해 0.6초 동안 부드럽게 변화 */
+}
+
+.toggle h1{
+  color: #fff;  /* 제목 색상을 흰색으로 설정 */
+}
+
+.container.active .toggle{
+  transform: translateX(50%);  /* 활성화된 상태에서는 toggle을 오른쪽으로 50% 이동 */
+}
+
+.toggle-panel{
+  position: absolute;                /* 절대적 위치 설정 */
+  width: 50%;                        /* 너비를 50%로 설정 */
+  height: 100%;                      /* 높이를 100%로 설정 */
+  display: flex;                     /* flexbox로 자식 요소들을 배치 */
+  align-items: center;               /* 세로 방향으로 중앙 정렬 */
+  justify-content: center;           /* 가로 방향으로 중앙 정렬 */
+  flex-direction: column;            /* 자식 요소들을 세로 방향으로 배치 */
+  padding: 0 30px;                   /* 왼쪽과 오른쪽에 30px의 여백 추가 */
+  text-align: center;                /* 텍스트를 중앙 정렬 */
+  top: 0;                            /* 상단에 위치하도록 설정 */
+  transform: translateX(0);          /* 기본 상태에서 위치를 0으로 설정 */
+  transition: all 0.6s ease-in-out;  /* 모든 스타일 변화에 대해 0.6초 동안 부드럽게 변화 */
+}
+
+.toggle-left{
+  transform: translateX(-200%);  /* 왼쪽 패널을 화면 밖으로 이동시킴 */
+}
+
+.container.active .toggle-left{
+  transform: translateX(0);  /* 활성화된 상태에서는 왼쪽 패널을 화면에 보이도록 설정 */
+}
+
+.toggle-right{
+  right: 0;                  /* 오른쪽 위치를 0으로 설정 */
+  transform: translateX(0);  /* 기본 상태에서 위치를 0으로 설정 */
+}
+
+.container.active .toggle-right{
+  transform: translateX(200%);  /* 활성화된 상태에서는 오른쪽 패널을 화면 밖으로 이동시킴 */
+}
+
+
+/* ------------------------------------- */

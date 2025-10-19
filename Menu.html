@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium</title>
+    <link rel="stylesheet" href="Main.css">
+  </head>
+
+  <body>
+    <nav class="navbar"> <!------ 01 ------>
+      <div id="navbar_logo">
+        <a href="index.html" id="favicon"> 
+          <!-- <img src="favicon.png" width="30" height="24"> -->
+          Elysium
+        </a>
+      </div>
+      <ul class="navbar__menu">
+        <li><a href="#" class="nav_link">Home</a></li>
+        <li><a href="#scroll2" class="nav_link scroll_move">Season Menu</a></li>
+        <li><a href="#scroll3" class="nav_link scroll_move">Coffee</a></li>
+        <li><a href="#scroll4" class="nav_link scroll_move">Beverage</a></li>
+        <li><a href="#scroll5" class="nav_link scroll_move">cake</a></li>
+        <li><a href="#scroll6" class="nav_link scroll_move">waffle</a></li>
+      </ul>
+      <ul class="navbar__icons">
+        <li><a href="#scroll7"><img src="https://cdn-icons-png.flaticon.com/256/1077/1077035.png" width="20px" style="filter: invert(100%);"></a></li>
+        <li><a href="#scroll7"><img src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3264057/shopping-cart-icon-md.png" width="20px" style="filter: invert(100%);"></a></li>
+        <li><a href="Login.html" class="fab fa-google" id='signin-btn'>sign up</a></li>
+        <li><a href="Login.html" class="fab fa-slack" id='login-btn'>log in</a></li>
+      </ul>
+    </nav>
+    
+
+    <article class="content">
+      <div class="bg1"></div>
+      <div class="Header">
+        <img class="scroll_on" id="bag-image" src="./images/first-img.png" height="100%">
+        <h1 class="scroll_on type_top" id="Header">Elysium Menu</h1>
+      </div>
+    </article>
+
+    <article class="content" id="scroll2">  <!-- 02 이달의 메뉴-->
+      <div class="bg"></div>
+      <div class="Text_title"><p>Season Menu</p></div>
+      
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/hotchocolate.png" alt="Hotchocolate">
+            <div class="text-wrap product" data-id="1">
+              <h1>마시멜로 핫초코</h1>
+              <p>#Marshmallow #Chocolate #Almond</p>
+              <button class="add-to-cart"> 5,500 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Apple_Cinnamon.jpeg" alt="Apple_Cinnamon">
+            <div class="text-wrap product" data-id="2">
+              <h1>애플 시나몬</h1>
+              <p>#Apple #Cinnamon</p>
+              <button class="add-to-cart"> 5,000 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Strawberry_cake.png" alt="Strawberry_cake01">
+            <div class="text-wrap product" data-id="3">
+              <h1>딸기 스노우 케이크</h1>
+              <p>#Strawberry #Chocolate </p>
+              <button class="add-to-cart"> 5,800 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Berry_Waffle.png" alt="Berry_Waffle">
+            <div class="text-wrap product" data-id="4">
+              <h1>스노우 베리 와플</h1>
+              <p>#Strawberry #Blueberry</p>
+              <button class="add-to-cart"> 6,000 담기</button>
+            </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content" id="scroll3"> <!---- 03 커피  ---->
+      <div class="bg"></div>
+      <div class="Text_title"><p>Coffee</p></div>
+
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Coffee02.jpeg" alt="Coffee">
+            <div class="text-wrap product" data-id="5">
+              <h1>아메리카노</h1>
+              <p>#Americano #Coffee</p>
+              <button class="add-to-cart"> 4,500 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Cafelatte.jpeg" alt="Cafelatte">
+            <div class="text-wrap product" data-id="6">
+              <h1>카페 라떼</h1>
+              <p>#Latte #Coffee</p>
+              <button class="add-to-cart"> 5,000 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Caramelmacchiato.jpeg" alt="Caramelmacchiato">
+            <div class="text-wrap product" data-id="7">
+              <h1>카라멜 마키아토</h1>
+              <p>#Caramel macchiato #Coffee </p>
+              <button class="add-to-cart"> 5,500 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/CafeMocha.jpeg" alt="Cafe Mocha">
+            <div class="text-wrap product" data-id="8">
+              <h1>카페 모카</h1>
+              <p>#Cafe Mocha #Coffee </p>
+              <button class="add-to-cart"> 5,500 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/ColdBrew.jpeg" alt="ColdBrew">
+            <div class="text-wrap product" data-id="9">
+              <h1>콜드브루</h1>
+              <p>#Cold brew #Coffee</p>
+              <button class="add-to-cart"> 5,500 담기</button>
+            </div>
+        </div>
+
+      </div>
+    </article>
+
+    <article class="content" id="scroll4"> <!---- 04 음료 ---->
+      <div class="bg"></div>
+      <div class="Text_title"><p>Beverage</p></div>
+
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Lemonade.jpeg" alt="Lemon ade">
+            <div class="text-wrap product" data-id="10">
+              <h1>레몬 에이드</h1>
+              <p>#Lemon #ade</p>
+              <button class="add-to-cart"> 5,200 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/WhiteGrapeAde.jpeg" alt="White Grape Ade">
+            <div class="text-wrap product" data-id="11">
+              <h1>청포도 에이드</h1>
+              <p>#White Grape #Ade</p>
+              <button class="add-to-cart"> 5,200 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Herbtea.jpeg" alt="Herb tea">
+            <div class="text-wrap product" data-id="12">
+              <h1>허브 티</h1>
+              <p>#Herb #tea</p>
+              <button class="add-to-cart"> 4,800 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Blacktea.jpeg" alt="Black tea">
+            <div class="text-wrap product" data-id="13">
+              <h1>홍차</h1>
+              <p>#Black #tea</p>
+              <button class="add-to-cart"> 4,800 담기</button>
+            </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content" id="scroll5"> <!---- 05 케이크 ---->
+      <div class="bg"></div>
+      <div class="Text_title"><p>Cake</p></div>
+
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Honeymilk.jpeg" alt="Honey milk cake">
+            <div class="text-wrap product" data-id="14">
+              <h1>허니 밀크 케이크</h1>
+              <p>#Honey #cake</p>
+              <button class="add-to-cart"> 5,500 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Tiramisuchocolat.jpeg" alt="Tiramisu chocolat cake">
+            <div class="text-wrap product" data-id="15">
+              <h1>티라미수 쇼콜라 케이크</h1>
+              <p>#Tiramisu #cake</p>
+              <button class="add-to-cart"> 6,000 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/vanillacaramel.jpeg" alt="vanilla caramel cake">
+            <div class="text-wrap product" data-id="16">
+              <h1>바닐라 캐러멜 케이크</h1>
+              <p>#vanilla #caramel #cake</p>
+              <button class="add-to-cart"> 5,800 담기</button>
+            </div>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="content" id="scroll6"> <!---- 06 와플 ---->
+      <div class="bg"></div>
+      <div class="Text_title"><p>Waffle</p></div>
+
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Chocolatewaffle.jpeg" alt="Chocolate waffle">
+            <div class="text-wrap product" data-id="17">
+              <h1>초코 와플</h1>
+              <p>#Chocolate #waffle</p>
+              <button class="add-to-cart"> 6,000 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Strawberrywaffle.jpeg" alt="Strawberry waffle">
+            <div class="text-wrap product" data-id="18">
+              <h1>딸기 와플</h1>
+              <p>#Strawberry #waffle</p>
+              <button class="add-to-cart"> 6,200 담기</button>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <img src="./images/Almondwaffle.jpeg" alt="Almond waffle">
+            <div class="text-wrap product" data-id="19">
+              <h1>아몬드 와플</h1>
+              <p>#Almond #waffles </p>
+              <button class="add-to-cart"> 6,200 담기</button>
+            </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="content" id="scroll7"> <!---- 07 장바구니 ---->
+      <div class="bg"></div>
+      <div class="cart_title"><p>장바구니</p></div>
+      <div class="cart_text" id="cart-container">
+        <p>장바구니가 비어있습니다.</p>
+      </div>
+      <div id="total-price" class="total-price"></div>
+    </article>
+
+    <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="Menu.js"></script>
+  </body>
+</html>

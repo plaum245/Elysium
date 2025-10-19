@@ -1,0 +1,850 @@
+@font-face {
+  font-family: 'Warhaven_Regular';         /* 'Warhaven_Regular'라는 커스텀 폰트 설정 */
+  src: url('./font/Warhaven_Regular.ttf'); /* 폰트 파일의 경로 지정 */
+}
+
+@font-face {
+  font-family: 'Warhaven_Bold';         /* 'Warhaven_Bold'라는 커스텀 폰트 설정 */
+  src: url('./font/Warhaven_Bold.ttf'); /* 폰트 파일의 경로 지정 */
+}
+
+* {
+  margin: 0;                       /* 모든 요소의 기본 여백을 0으로 설정 */
+  font-family: 'Warhaven_Regular'; /* 기본 폰트를 'Warhaven_Regular'로 설정 */
+  text-decoration: none;           /* 모든 텍스트의 밑줄 등 텍스트 장식을 제거 */
+  color: white;                  /* 모든 텍스트 색상을 흰색으로 설정 */
+}
+
+html {
+  overflow: hidden; /* HTML 요소의 스크롤을 숨김 */
+}
+
+html, body {
+  width: 100%;  /* HTML 및 body 요소의 너비를 100%로 설정 */
+  height: 100%; /* HTML 및 body 요소의 높이를 100%로 설정 */
+}
+
+body {
+  margin: 0;                /* body 요소의 기본 여백을 0으로 설정 */
+  background-color: #000; /* body의 배경색을 검은색으로 설정 */
+}
+
+:root {
+  --accent-color: rgb(68, 68, 255);        /* 강조 색상을 파란색으로 설정 */
+  --text-color: white;                     /* 텍스트 색상을 흰색으로 설정 */
+  --card-width: 300px;                       /* 카드 요소의 기본 너비를 300px로 설정 */
+  --card-height: 300px;                      /* 카드 요소의 기본 높이를 300px로 설정 */
+  --card-transition-duration: 800ms;         /* 카드 전환 애니메이션 지속 시간을 800ms로 설정 */
+  --card-transition-easing: ease;            /* 카드 전환 애니메이션의 이징을 'ease'로 설정 */
+  --back-img: src("images/second-img.jpeg"); /* 배경 이미지 경로 설정 */
+}
+
+
+/* --------------navbar------------------ */
+.navbar {
+  position: fixed;                /* 페이지 상단에 고정됨 */
+  top: 0;                         /* 상단에 위치 */
+  left: 0;                        /* 왼쪽에 위치 */
+  right: 0;                       /* 오른쪽에 위치 */
+  z-index: 2;                     /* 다른 요소들보다 위에 표시 */
+  display: flex;                  /* 수평 정렬 */
+  justify-content: space-between; /* 요소들 사이에 공간을 균등하게 배치 */
+  align-items: center;            /* 요소들을 수직 가운데 정렬 */
+  padding: 8px 12px;              /* 안쪽 여백 설정 */
+  margin-left: 3%;                /* 왼쪽 바깥 여백 설정 */
+  margin-right: 3%;               /* 오른쪽 바깥 여백 설정 */
+}
+
+.navbar a {
+  text-decoration: none;    /* 링크의 밑줄 제거 */
+  font-size: 100%;          /* 폰트 크기 기본값 */
+  color: var(--text-color); /* 텍스트 색상 지정 */
+}
+
+.navbar__logo {
+  padding-left: 2%; /* 왼쪽 안쪽 여백 설정 */
+}
+
+.navbar__logo i {
+  color: var(--accent-color); /* 아이콘의 색상 설정 */
+  padding-left: 2%;           /* 아이콘의 왼쪽 여백 설정 */
+}
+
+.navbar__menu {
+  list-style: none; /* 리스트 스타일 제거 */
+  display: flex;    /* 리스트를 수평으로 배치 */
+  margin: 0;        /* 바깥 여백 제거 */
+  margin-left: 13%; /* 왼쪽 바깥 여백 설정 */
+  padding-left: 0;  /* 왼쪽 안쪽 여백 제거 */
+}
+
+.navbar__menu li {
+  padding: 8px 30px; /* 리스트 아이템에 안쪽 여백 설정 */
+  opacity: 0.75;     /* 리스트 아이템의 불투명도 설정 */
+}
+
+.navbar__menu li:hover {
+  opacity: 1; /* 마우스를 올렸을 때 불투명도 설정 */
+}
+
+.navbar__menu li::before {
+  transition: 300ms;         /* 전환 시간 설정 */
+  height: 3px;               /* 높이 설정 */
+  content: "";               /* 가상 요소 생성 */
+  position: absolute;        /* 절대 위치 설정 */
+  background-color: white; /* 배경색 흰색으로 설정 */
+}
+
+.navbar__menu li::before {
+  width: 0%;   /* 가로 크기 설정 */
+  bottom: 3px; /* 아래쪽 위치 설정 */
+}
+
+.navbar__menu li:hover::before {
+  width: 5%;  /* 마우스를 올렸을 때 가로 크기 설정 */
+}
+
+.navbar__icons {
+  list-style: none;         /* 리스트 스타일 제거 */
+  display: flex;            /* 아이콘 리스트를 수평으로 배치 */
+  color: var(--text-color); /* 텍스트 색상 설정 */
+  margin: 0;                /* 바깥 여백 제거 */
+  padding-left: 0;          /* 왼쪽 안쪽 여백 제거 */
+}
+
+.navbar__icons li {
+  padding: 8px 12px; /* 아이콘 리스트 아이템에 안쪽 여백 설정 */
+  margin: 0;         /* 바깥 여백 제거 */
+  opacity: 0.75;     /* 불투명도 설정 */
+}
+
+.navbar__icons img {
+  padding-top: 3px;   /* 이미지의 위쪽 여백 설정 */
+  padding-right: 5px; /* 이미지의 오른쪽 여백 설정 */
+}
+
+.navbar__icons li:hover {
+  opacity: 1; /* 마우스를 올렸을 때 불투명도 설정 */
+}
+/* ------------------------------------- */
+
+
+/* --------------article------------------ */
+.content {
+	width: 100%; /* 너비를 100%로 설정 */
+	height: 100%; /* 높이를 100%로 설정 */
+	position: relative; /* 부모 요소 기준으로 위치를 상대적으로 설정 */
+	overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+}
+
+.scroll_on {
+	opacity: 0; /* 투명도 0으로 설정 */
+	transition: all 2s; /* 모든 속성에 2초 동안 전환 효과 적용 */
+}
+
+.scroll_on.active {
+	opacity: 1 !important; /* active 클래스가 있을 때 불투명도 1로 설정, 다른 규칙보다 우선 */
+}
+/* ------------------------------------- */
+
+
+/* -------Header--------- */
+.content:nth-child(1) {
+	width: 100%;             /* 너비를 100%로 설정 */
+	height: 100vh;           /* 높이를 화면 전체 높이로 설정 */
+	display: flex;           /* Flexbox를 사용하여 자식 요소 정렬 */
+	justify-content: center; /* 자식 요소를 가로 방향 중앙에 정렬 */
+	align-items: center;     /* 자식 요소를 세로 방향 중앙에 정렬 */
+	overflow: hidden;        /* 넘치는 내용을 숨김 */
+}
+
+.Header {
+	position: relative;       /* 부모 요소를 기준으로 상대 위치 설정 */
+	width: 100%;              /* 너비를 100%로 설정 */
+	height: 100%;             /* 높이를 100%로 설정 */
+	display: flex;            /* Flexbox 사용 */
+	justify-content: center;  /* 가로 방향 중앙 정렬 */
+	align-items: center;      /* 세로 방향 중앙 정렬 */
+	color: var(--text-color); /* 텍스트 색상 지정 */
+}
+
+#Header {
+	display: flex;                    /* Flexbox 사용 */
+	position: absolute;               /* 부모 요소를 기준으로 절대 위치 설정 */
+	top: 60%;                         /* 상단에서 40% 떨어진 위치 */
+	left: 7%;                         /* 왼쪽에서 7% 떨어진 위치 */
+	white-space: nowrap;              /* 텍스트 줄 바꿈 방지 */
+	text-align: left;                 /* 텍스트 왼쪽 정렬 */
+	margin: 0;                        /* 기본 여백 제거 */
+	padding: 0;                       /* 기본 패딩 제거 */
+	font-family: 'Warhaven_Bold';     /* 폰트 설정 */
+	font-size: 10vh;                  /* 폰트 크기를 화면 높이 기준으로 설정 */
+	font-weight: bolder;              /* 폰트 굵게 설정 */
+	text-shadow: 8px 8px 4px black; /* 검정색 그림자 효과 추가 */
+}
+
+#bag-image {
+	display: flex;            /* Flexbox 사용 */
+	position: absolute;       /* 부모 요소를 기준으로 절대 위치 설정 */
+	filter: brightness(55%);  /* 밝기 필터 설정 */
+}
+
+#story{
+	border: none;                                        /* 테두리 제거 */
+	--start-width: 13vh;                                 /* 버튼 너비 변수 설정 */
+	--start-height: 5vh;                                 /* 버튼 높이 변수 설정 */
+	width: var(--start-width);                           /* 변수값으로 버튼 너비 설정 */
+	height: var(--start-height);                         /* 변수값으로 버튼 높이 설정 */
+	border-radius: 30px;                                 /* 테두리 둥글게 설정 */
+	position: absolute;                                  /* 절대 위치 설정 */
+	top: 80%;                                            /* 상단에서 65% 떨어진 위치 */
+	left: 7.5%;                                          /* 왼쪽에서 8% 떨어진 위치 */
+	transform: translateY(-50%);                         /* Y축 방향 중앙 정렬 */
+	color: white;                                      /* 텍스트 색상을 흰색으로 설정 */
+	background-color: #000000;                         /* 배경색 검정으로 설정 */
+	box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6); /* 흰색 그림자 효과 */
+	cursor: pointer;                                     /* 커서 모양을 포인터로 설정 */
+	font-size: 95%;                                      /* 폰트 크기 설정 */
+	font-family: 'Warhaven_Regular';                     /* 폰트 지정 */
+	transition: all 0.2s;                                /* 모든 속성에 0.2초 동안 전환 효과 */
+}
+
+#about:hover {
+	scale: 105%;       /* Hover 시 크기를 105%로 확대 */
+	outline: none;     /* 외곽선 제거 */
+	border: none;      /* 테두리 제거 */
+}
+
+@media screen and (min-width: 800px) {
+	#Header {
+		font-size: 700%; /* 화면 너비가 800px 이상일 때 폰트 크기 700%로 설정 */
+	}
+}
+/* ------------------------------------- */
+
+
+/* -------card------- */
+.content:nth-child(2) {
+	width: 100%;             /* 너비를 100%로 설정 */
+	height: 100vh;           /* 높이를 화면 전체 높이로 설정 */
+	display: flex;           /* Flexbox를 사용하여 자식 요소 정렬 */
+	justify-content: center; /* 자식 요소를 가로 방향 중앙에 정렬 */
+	align-items: center;     /* 자식 요소를 세로 방향 중앙에 정렬 */
+	overflow: hidden;        /* 넘치는 내용 숨김 */
+}
+
+.app button {
+	border: none;           /* 버튼 테두리 제거 */
+	background: none;       /* 배경 제거 */
+	background-color: none; /* 배경색 없음 */
+	cursor: pointer;        /* 커서 모양을 포인터로 설정 */
+}
+.app button:focus {
+	outline: none; /* 포커스 외곽선 제거 */
+	border: none;  /* 포커스 시 테두리 제거 */
+}
+
+.app {
+	position: relative;      /* 부모 요소를 기준으로 상대 위치 설정 */
+	width: 100%;             /* 너비를 100%로 설정 */
+	height: 100%;            /* 높이를 100%로 설정 */
+	display: flex;           /* Flexbox 사용 */
+	justify-content: center; /* 가로 방향 중앙 정렬 */
+	align-items: center;     /* 세로 방향 중앙 정렬 */
+}
+.app__bg {
+	position: absolute;   /* 부모 요소를 기준으로 절대 위치 설정 */
+	width: 100%;          /* 너비를 100%로 설정 */
+	height: 100%;         /* 높이를 100%로 설정 */
+	z-index: -5;          /* Z-축에서 뒤로 위치 */
+	filter: blur(8px);    /* 블러 효과 */
+	pointer-events: none; /* 배경 클릭 방지 */
+	user-select: none;    /* 텍스트 선택 방지 */
+	overflow: hidden;     /* 넘치는 내용 숨김 */
+}
+.app__bg::before {
+	content: "";        /* 가상 요소 추가 */
+	position: absolute; /* 부모 요소를 기준으로 절대 위치 설정 */
+	left: 0;            /* 왼쪽 정렬 */
+	top: 0;             /* 상단 정렬 */
+	width: 100%;        /* 너비 100% */
+	height: 100%;       /* 높이 100% */
+	background: #000; /* 배경색 검정 */
+	z-index: 1;         /* Z-축에서 앞에 위치 */
+	opacity: 0.8;       /* 불투명도 설정 */
+}
+.app__bg__image {
+	position: absolute;                                                            /* 부모 요소를 기준으로 절대 위치 설정 */
+	left: 50%;                                                                     /* 수평 중앙 정렬 */
+	top: 50%;                                                                      /* 수직 중앙 정렬 */
+	transform: translate(-50%, -50%) translateX(var(--image-translate-offset, 0)); /* 중앙 위치와 이미지 이동 효과 */
+	width: 105%;                                                                   /* 너비 105% 설정 */
+	height: 105%;                                                                  /* 높이 105% 설정 */
+	transition: transform 1000ms ease, opacity 1000ms ease;                        /* 트랜스폼과 불투명도에 전환 효과 */
+	overflow: hidden;                                                              /* 넘치는 내용 숨김 */
+}
+.app__bg__image img {
+	width: 100%;       /* 너비 100% 설정 */
+	height: 100%;        /* 높이 100% 설정 */
+	object-fit: cover; /* 이미지가 영역에 맞게 채워짐 */
+}
+.app__bg__image.current--image {
+	opacity: 1;                  /* 현재 이미지의 불투명도 1 */
+	--image-translate-offset: 0; /* 이미지 이동 없음 */
+}
+.app__bg__image.previous--image, .app__bg__image.next--image {
+	opacity: 0; /* 이전 및 다음 이미지의 불투명도 0 */
+}
+.app__bg__image.previous--image {
+	--image-translate-offset: -25%; /* 이전 이미지 이동 -25% */
+}
+.app__bg__image.next--image {
+	--image-translate-offset: 25%; /* 다음 이미지 이동 25% */
+}
+
+.page_title {
+	position: absolute;               /* 부모 요소를 기준으로 절대 위치 설정 */
+	font-size: 6vh;                   /* 폰트 크기를 화면 높이 기준으로 설정 */
+	top: 17%;                         /* 상단에서 17% 떨어진 위치 */
+	z-index: 100;                     /* Z-축에서 앞에 위치 */
+	color: rgb(245, 245, 245);      /* 텍스트 색상 */
+	text-shadow: 8px 8px 4px black; /* 검정색 그림자 효과 */
+	text-align: center;               /* 텍스트 가운데 정렬 */
+}
+
+.cardList { 
+  position: absolute;                 /* 부모 요소 기준으로 절대 위치 지정 */
+  width: calc(3 * var(--card-width)); /* 카드 3개의 너비만큼 크기 설정 */
+  height: auto;                       /* 높이는 자동으로 설정 */
+}
+
+.cardList__btn {          /* 카드 슬라이드의 좌우 버튼 */
+  --btn-size: 35px;       /* 버튼 크기 설정 */
+  width: var(--btn-size); /* 버튼의 가로 크기 */
+  height: auto;           /* 높이는 자동 */
+  position: absolute;     /* 절대 위치로 고정 */
+  top: 50%;               /* 세로 중앙에 위치 */
+  z-index: 100;           /* 카드보다 앞에 배치 */
+}
+.cardList__btn.btn--left { /* 왼쪽 버튼 */
+  left: -5%; /* 왼쪽으로 5% 떨어진 위치 */
+}
+.cardList__btn.btn--right { /* 오른쪽 버튼 */
+  right: -5%; /* 오른쪽으로 5% 떨어진 위치 */
+}
+.cardList__btn .icon { /* 버튼 아이콘 컨테이너 */
+  width: 100%;         /* 버튼 크기에 맞게 가로 크기 설정 */
+  height: 100%;        /* 버튼 크기에 맞게 세로 크기 설정 */
+}
+.cardList__btn .icon svg { /* SVG 아이콘 스타일 */
+  width: 100%;             /* SVG 가로 크기 설정 */
+  height: 100%;            /* SVG 세로 크기 설정 */
+}
+.cardList .cards__wrapper { /* 카드 3D 효과 래퍼 */
+  position: relative;       /* 상대 위치 설정 */
+  width: 100%;              /* 래퍼의 가로 크기 100% */
+  height: 100%;             /* 래퍼의 세로 크기 100% */
+  perspective: 1000px;      /* 3D 시점 깊이 설정 */
+}
+
+.card { /* 각 카드 스타일 */
+  --card-translateY-offset: 100vh; /* 카드의 세로 이동 초기 위치 */
+  position: absolute; /* 절대 위치 */
+  left: 50%;          /* 가로 중앙에 배치 */
+  top: 50%;           /* 세로 중앙에 배치 */
+  transform: translate(-50%, -35%) translateX(var(--card-translateX-offset)) /* 중심 이동 후 가로 이동 */
+             translateY(var(--card-translateY-offset))                       /* 세로 이동 추가 */
+             rotateY(var(--card-rotation-offset))                            /* Y축 회전 */
+             scale(var(--card-scale-offset));                                /* 크기 변환 */
+  display: inline-block;      /* 인라인 블록 요소 */
+  width: var(--card-width);   /* 카드 가로 너비 설정 */
+  height: var(--card-height); /* 카드 세로 높이 설정 */
+  transition: transform var(--card-transition-duration) var(--card-transition-easing); /* 이동 시 전환 효과 */
+  user-select: none;                 /* 텍스트 선택 방지 */
+  box-shadow: 0px 25px 40px black; /* 그림자 효과 */
+}
+.card::before { /* 카드 오버레이 */
+  content: "";                       /* 빈 가상 요소 */
+  position: absolute;                /* 절대 위치 */
+  left: 0;                           /* 왼쪽 끝에 위치 */
+  top: 0;                            /* 위쪽 끝에 위치 */
+  width: 100%;                       /* 가로 크기 100% */
+  height: 100%;                      /* 세로 크기 100% */
+  background: #000;                /* 어두운 배경 */
+  z-index: 1;                        /* 카드 위에 표시 */
+  transition: opacity var(--card-transition-duration) var(--card-transition-easing); /* 불투명도 전환 */
+  opacity: calc(1 - var(--opacity)); /* 불투명도 설정 */
+}
+.card__image { /* 카드 내부 이미지 컨테이너 */
+  position: relative; /* 상대 위치 */
+  width: 100%;        /* 가로 크기 100% */
+  height: 100%;       /* 세로 크기 100% */
+}
+.card__image img { /* 카드 이미지 */
+  position: absolute; /* 절대 위치 */
+  left: 0;            /* 왼쪽 끝에 위치 */
+  top: 0;             /* 위쪽 끝에 위치 */
+  width: 100%;        /* 이미지 가로 크기 100% */
+  height: 100%;       /* 이미지 세로 크기 100% */
+  object-fit: cover;  /* 카드 크기에 맞게 자르기 */
+}
+.card.current--card { /* 현재 선택된 중앙 카드 */
+  --current-card-rotation-offset: 0;                           /* 회전 없음 */
+  --card-translateX-offset: 0;                                 /* 가로 이동 없음 */
+  --card-rotation-offset: var(--current-card-rotation-offset); /* 회전 적용 */
+  --card-scale-offset: 1.2;                                    /* 카드 확대 */
+  --opacity: 0.8;                                              /* 반투명도 설정 */
+}
+
+.card.previous--card { /* 이전 카드 스타일 */
+  --card-translateX-offset: calc(-1 * var(--card-width) * 1.1); /* 왼쪽으로 이동 */
+  --card-rotation-offset: 25deg;                                /* 시계 방향으로 25도 회전 */
+}
+.card.next--card { /* 다음 카드 스타일 */
+  --card-translateX-offset: calc(var(--card-width) * 1.1); /* 오른쪽으로 이동 */
+  --card-rotation-offset: -25deg;                          /* 반시계 방향으로 25도 회전 */
+}
+.card.previous--card, .card.next--card { /* 이전 및 다음 카드 공통 스타일 */
+  --card-scale-offset: 0.9; /* 축소 */
+  --opacity: 0.4;           /* 반투명도 적용 */
+}
+
+.infoList { /* 정보 목록 컨테이너 */
+  position: absolute;                 /* 절대 위치 지정 */
+  width: calc(3 * var(--card-width)); /* 카드 3개 너비 크기 */
+  height: var(--card-height);         /* 카드 높이와 동일하게 설정 */
+  top: 40%;                           /* 위에서 40% 위치 */
+  pointer-events: none;               /* 마우스 이벤트 차단 */
+}
+.infoList .info__wrapper { /* 정보 래퍼 */
+  position: relative;           /* 상대 위치 */
+  width: 100%;                  /* 전체 너비 */
+  height: 100%;                 /* 전체 높이 */
+  display: flex;                /* 플렉스 레이아웃 */
+  justify-content: flex-start;  /* 왼쪽 정렬 */
+  align-items: flex-end;        /* 아래쪽 정렬 */
+  perspective: 1000px;          /* 3D 시점 설정 */
+  transform-style: preserve-3d; /* 3D 변환 유지 */
+}
+
+.info { /* 개별 정보 요소 */
+  margin-bottom: calc(var(--card-height) / 50); /* 아래 여백 */
+  margin-left: calc(var(--card-width) / 1.5);   /* 왼쪽 여백 */
+  transform: translateZ(2rem);                  /* Z축으로 2rem 이동 */
+  transition: transform var(--card-transition-duration) var(--card-transition-easing); /* 이동 전환 효과 */
+}
+
+.info .text { /* 텍스트 스타일 */
+  position: relative;  /* 상대 위치 */
+  font-size: calc(var(--card-width) * var(--text-size-offset, 0.2)); /* 폰트 크기 비율 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  color: #fff;       /* 흰색 텍스트 */
+  width: fit-content;  /* 텍스트 너비에 맞춤 */
+}
+
+.info .name, .info .location { /* 이름과 위치 텍스트 공통 스타일 */
+  text-transform: uppercase; /* 대문자로 변환 */
+}
+
+.info .name { /* 이름 스타일 */
+  margin: 0 calc(var(--mg-left) / 10); /* 좌우 여백 */
+}
+
+.info .location {   /* 위치 텍스트 스타일 */
+  font-weight: 800; /* 글씨 두껍게 */
+}
+
+.info .location { /* 위치 텍스트 스타일 추가 */
+  --mg-left: 40px;                          /* 왼쪽 여백 설정 */
+  --text-size-offset: 0.12;                 /* 텍스트 크기 비율 */
+  font-weight: 600;                         /* 두껍게 설정 */
+  margin-left: var(--mg-left);              /* 왼쪽 여백 */
+  margin-bottom: calc(var(--mg-left) / 10); /* 아래 여백 */
+  margin-top: calc(var(--mg-left) / 5);     /* 위쪽 여백 */
+  padding-bottom: 0.8rem;                   /* 아래 패딩 */
+}
+
+.info .location::before, .info .location::after { /* 위치 텍스트 앞뒤 선 스타일 */
+  content: "";                                           /* 빈 요소 생성 */
+  position: absolute;                                    /* 절대 위치 */
+  background: #fff;                                    /* 흰색 배경 */
+  left: 0%;                                              /* 왼쪽 끝 위치 */
+  transform: translate(calc(-1 * var(--mg-left)), -50%); /* 위치 조정 */
+}
+
+.info .location::before { /* 위치 텍스트 앞 선 */
+  top: 50%;    /* 세로 중앙 위치 */
+  width: 20px; /* 선 너비 */
+  height: 5px; /* 선 높이 */
+}
+.info .location::after { /* 위치 텍스트 뒤 선 */
+  bottom: 0;   /* 아래 끝에 위치 */
+  width: 60px; /* 선 너비 */
+  height: 2px; /* 선 높이 */
+}
+
+.info .description { /* 설명 텍스트 스타일 */
+  --text-size-offset: 0.065; /* 텍스트 크기 비율 */
+  font-weight: 500;          /* 중간 굵기 */
+}
+
+.info.current--info { /* 현재 선택된 정보 요소 */
+  opacity: 1;     /* 불투명 */
+  display: block; /* 표시 */
+}
+
+.info.previous--info, .info.next--info { /* 이전 및 다음 정보 요소 */
+  opacity: 0;    /* 투명 */
+  display: none; /* 숨김 */
+}
+
+@media only screen and (min-width: 800px) { /* 화면 너비 800px 이상일 때 */
+  :root {
+    --card-width: 30vh; /* 카드 너비 설정 */
+    --card-height: 40vh; /* 카드 높이 설정 */
+  }
+}
+/* ------------------------------------- */
+
+
+/*------------card2-------------*/
+.Text_title {
+	position: absolute;               /* 부모 요소를 기준으로 절대 위치 설정 */
+	font-size: 6vh;                   /* 폰트 크기를 화면 높이 기준으로 설정 */
+	top: 10%;                         /* 상단에서 17% 떨어진 위치 */
+	z-index: 100;                     /* Z-축에서 앞에 위치 */
+  width: auto;                      /* 너비 자동 설정 */
+  padding: 2%;                      /* 내부 여백을 부모 요소 너비 설정 */
+	color: rgb(245, 245, 245);      /* 텍스트 색상 */
+	text-shadow: 8px 8px 4px black; /* 검정색 그림자 효과 */
+	text-align: center;               /* 텍스트 가운데 정렬 */
+}
+
+
+.card-container {
+  position: relative;      /* 요소를 자기 자신을 기준으로 함 */
+  width: 100%;             /* 컨테이너의 너비를 100%로 설정 */
+  height: 100%;            /* 컨테이너의 높이를 100%로 설정 */
+  display: flex;           /* 플렉스 레이아웃 사용 */
+  justify-content: center; /* 수평 정렬: 중앙 */
+  align-items: center;     /* 수직 정렬: 중앙 */
+  text-align: center;      /* 텍스트 중앙 정렬 */
+}
+
+.card-box2 { 
+  position: relative;                      /* 요소를 자기 자신을 기준으로 함 */
+  border-radius: 20px;                     /* 모서리를 둥글게 설정 */
+  overflow: hidden;                        /* 요소 밖으로 나오는 컨텐츠 숨김 */
+  display: inline-block;                   /* 크기를 갖지만 크기 변경 가능 */
+  margin: 20px;                            /* 외부 여백 설정 */
+  width: 80%;                              /* 자동 너비 */
+  height: 50%;                             /* 높이 75%로 설정 */
+  box-shadow: 0 20px 35px rgb(0, 0, 0);  /* 그림자 효과 추가 */
+  transition: 0.5s;                        /* 부드러운 전환 효과 */
+}
+
+.card-box2 img {
+  width: 100%;       /* 이미지 너비 100% */
+  height: 100%;      /* 이미지 높이 100% */
+  object-fit: cover; /* 이미지 왜곡 없이 적절히 맞춤 */
+}
+
+.card-box2:hover {
+  transform: scale(0.95);  /* 마우스 오버 시 축소 효과 */
+}
+
+.img-gradient {
+  position: absolute;                                                     /* 부모를 기준으로 움직임 */
+  left: 0;                                                                /* 왼쪽 정렬 */
+  top: 0;                                                                 /* 상단 정렬 */
+  width: 100%;                                                            /* 너비 100% */
+  height: 100%;                                                           /* 높이 100% */
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));  /* 그라데이션 배경 */
+  z-index: 1;                                                             /* 우선 순위 설정 */
+  pointer-events: none;                                                   /* 마우스 클릭, 터치, 호버 등 모든 포인터 이벤트를 무시 */
+}
+
+.text-wrap {
+  position: absolute; /* 부모 요소를 기준으로 절대 위치 지정 */
+  bottom: 0;          /* 하단에 배치 */
+  padding: 18px;      /* 내부 여백 설정 */
+  z-index: 2;         /* 다른 요소들보다 위에 표시되도록 우선순위 설정 */
+  text-align: left;   /* 텍스트 왼쪽 정렬 */
+}
+
+.text-wrap h1 {
+  color: white;     /* 텍스트 색상 */
+  font-size: 5vh;     /* 뷰포트 높이를 기준으로 글자 크기 설정 */
+  margin-bottom: 3px; /* 아래쪽 여백 설정 */
+  font-weight: bold;  /* 텍스트 두께 설정 */
+}
+
+.text-wrap p {
+  color: white;   /* 텍스트 색상 */
+  font-size: 2vh;   /* 뷰포트 높이를 기준으로 글자 크기 설정 */
+  line-height: 0.5; /* 줄 간격 설정 */
+}
+
+/* ------------------------------------- */
+
+/* ----footer---- */
+.sci li {
+  display: block;                   /* 리스트 아이템을 블록 형태로 표시 */
+  position: relative;               /* 자식 요소의 절대 위치를 설정할 수 있도록 함 */
+  list-style: none;                 /* 기본 리스트 스타일 제거 */
+  width: 4vh;                       /* 고정된 너비 */
+  height: 4vh;                      /* 고정된 높이 */
+  background: rgb(119, 119, 119); /* 배경 색상 */
+  border-radius: 20px;              /* 모서리 둥글게 */
+  align-content: center;            /* 콘텐츠를 수직으로 중앙 정렬 (flexbox에서만 의미 있음) */
+  justify-content: center;          /* 콘텐츠를 수평으로 중앙 정렬 (flexbox에서만 의미 있음) */
+  text-align: center;               /* 텍스트를 중앙 정렬 */
+  text-decoration: none;            /* 링크의 밑줄 제거 */
+  margin-left: 0.7vh;               /* 왼쪽 여백 */
+  margin-right: 0.7vh;              /* 오른쪽 여백 */
+}
+
+.sci {
+  display: flex;         /* flexbox 레이아웃 사용 */
+  margin-top: 20px;      /* 위쪽 여백 */
+  align-content: center; /* 콘텐츠를 수직으로 중앙 정렬 */
+  width: 60%;            /* 고정된 너비 */
+  text-align: center;    /* 텍스트 중앙 정렬 */
+}
+
+.sci a {
+  height: 100%;       /* 링크의 높이를 100%로 설정 */
+  display: block;     /* 링크를 블록 형태로 표시 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.sci img {
+  top: 510px;         /* 상단 위치 지정 (상대 위치 설정) */
+  margin-left: auto;  /* 왼쪽 여백 자동 조정 */
+  margin-right: auto; /* 오른쪽 여백 자동 조정 */
+  margin-top: 0.7vh;  /* 위쪽 여백 */
+  height: 60%;        /* 이미지 높이 */
+  display: block;     /* 이미지 블록 형태로 표시 */
+  overflow: hidden;   /* 이미지가 부모 요소를 넘치지 않게 함 */
+}
+
+.quick-Link {
+  position: relative; /* 자식 요소의 절대 위치 기준 설정 */
+}
+
+.footer__inner {
+  padding: 5%; /* 안쪽 여백 설정 */
+}
+
+.footer__text {
+  margin-top: 2.5%;                 /* 위쪽 여백 */
+  font-size: 1.3vh;                 /* 폰트 크기를 뷰포트 높이에 상대적으로 설정 */
+  text-transform: uppercase;        /* 텍스트를 대문자로 변환 */
+  border-top: 1px solid white;    /* 상단 경계선 설정 */
+  border-bottom: 1px solid white; /* 하단 경계선 설정 */
+  display: flex;                    /* flexbox 레이아웃 사용 */
+  justify-content: space-between;   /* 자식 요소들을 양쪽 끝으로 정렬 */
+}
+
+.footer__info {
+  display: flex;                  /* flexbox 레이아웃 사용 */
+  justify-content: space-between; /* 자식 요소들을 양쪽 끝으로 정렬 */
+  margin: 100px 0;                /* 위아래 여백 설정 */
+}
+
+.footer__info .left {
+  width: 40%; /* 왼쪽 영역 너비 설정 */
+}
+
+.footer__info .left .title {
+  border-top: 2px solid white;                             /* 상단 경계선 설정 */
+  border-bottom: 1px solid white;                          /* 하단 경계선 설정 */
+  padding: 3% 0;                                             /* 위아래 여백 설정 */
+  text-transform: uppercase;                                 /* 텍스트를 대문자로 변환 */
+  font-weight: 700;                                          /* 굵게 설정 */
+  background: url(../../img/arrow.svg) no-repeat right 20px; /* 배경 이미지 설정 */
+  transition: all 0.3s;                                      /* 부드러운 전환 효과 */
+}
+
+.footer__info .left .title:hover {
+  background-color: rgba(245, 245, 245, 0.644);            /* 마우스 오버 시 배경색 변경 */
+  padding-left: 2%;                                          /* 왼쪽 패딩 증가 */
+  border-color: transparent;                                 /* 경계선 색상 변경 */
+}
+
+.footer__info .left p {
+  font-size: 1.7vh; /* 폰트 크기 설정 */
+  padding-top: 3%;  /* 위쪽 패딩 설정 */
+}
+
+.footer__info .right {
+  display: flex; /* flexbox 레이아웃 사용 */
+  width: 50%;    /* 너비 설정 */
+  height: 30%;   /* 높이 설정 */
+}
+
+.footer__info .right h3 {
+  border-top: 2px solid white; /* 상단 경계선 설정 */
+  font-size: 1.3vh;              /* 폰트 크기 설정 */
+  margin-bottom: 2%;             /* 아래쪽 여백 설정 */
+  padding-top: 10px;             /* 위쪽 패딩 설정 */
+}
+
+.footer__info .right ul {
+  border-top: 1px solid white; /* 상단 경계선 설정 */
+  list-style: none;              /* 목록 스타일 없음 */
+}
+
+.footer__info .right li {
+  border-bottom: 1px solid white; /* 하단 경계선 설정 */
+}
+
+.footer__info .right li a {
+  padding: 14px 0;           /* 위아래 패딩 설정 */
+  font-size: 14px;           /* 폰트 크기 설정 */
+  display: inline-block;     /* 인라인 블록으로 설정 */
+  text-transform: uppercase; /* 텍스트를 대문자로 변환 */
+}
+
+.footer__info .right li em {
+  font-size: 3%;        /* 폰트 크기 설정 */
+  padding-left: 3%;     /* 왼쪽 패딩 설정 */
+  opacity: 0;           /* 초기 투명도 설정 */
+  transition: all 0.3s; /* 모든 속성에 대해 0.3초 동안의 부드러운 전환 효과 */
+}
+
+.footer__info .right li:hover em {
+  opacity: 1; /* 마우스 오버 시 투명도 변경 */
+}
+
+.footer__right {
+  justify-content: space-between;  /* 자식 요소를 양쪽 끝으로 정렬 */
+  text-align: center;              /* 중앙 정렬 */
+  text-transform: uppercase;       /* 텍스트를 대문자로 변환 */
+  font-size: 12px;                 /* 폰트 크기 설정 */
+  margin-bottom: 20px;             /* 아래쪽 여백 설정 */
+}
+
+.one {
+  width: 50%; /* 너비 설정 */
+}
+
+.two {
+  width: 50%; /* 너비 설정 */
+}
+
+/* 화면 크기가 800px 이하일 때 스타일 조정 */
+@media (max-width: 800px) {
+  .footer__info {
+      flex-direction: column; /* 세로 방향으로 정렬 */
+  }
+  .footer__info .left {
+      width: 100%;            /* 왼쪽 영역 너비 100%로 변경 */
+  }
+  .footer__info .left .desc {
+      margin-bottom: 40px;    /* 아래쪽 여백 설정 */
+  }
+  .footer__info .right {
+      width: 100%;            /* 오른쪽 영역 너비 100%로 변경 */
+  }
+}
+
+/* ------------------------------------- */
+/*----------- 장바구니-------------*/
+.add-to-cart {
+  background-color: #6f6f6f; /* '장바구니에 추가' 버튼의 배경색을 파란색으로 설정 */
+  color: white; /* '장바구니에 추가' 버튼의 글자색을 흰색으로 설정 */
+  padding: 3%; /* 버튼 안쪽에 10px의 패딩을 추가 */
+  margin-top: 8px; /* 아래쪽 여백 설정 */
+  border: none; /* 버튼에 테두리를 제거 */
+  border-radius: 4px; /* 버튼의 모서리를 4px 둥글게 설정 */
+  cursor: pointer; /* 마우스를 올리면 포인터 커서가 나타나도록 설정 */
+}
+
+.add-to-cart:hover {
+  background-color: #292a33; /* '장바구니에 추가' 버튼에 마우스를 올렸을 때 배경색을 어두운 파란색으로 설정 */
+}
+
+/*-------------*/
+.cart_title {
+	position: absolute;               /* 부모 요소를 기준으로 절대 위치 설정 */
+	font-size: 6vh;                   /* 폰트 크기를 화면 높이 기준으로 설정 */
+	top: 10%;                         /* 상단에서 17% 떨어진 위치 */
+	z-index: 100;                     /* Z-축에서 앞에 위치 */
+  width: auto;                      /* 너비 자동 설정 */
+  padding: 2%;                      /* 내부 여백을 부모 요소 너비 설정 */
+  margin-left: 5%;
+	color: rgb(245, 245, 245);      /* 텍스트 색상 */
+	text-shadow: 8px 8px 4px black; /* 검정색 그림자 효과 */
+	text-align: center;               /* 텍스트 가운데 정렬 */
+}
+
+.cart_text p{
+  position: absolute;               /* 부모 요소를 기준으로 절대 위치 설정 */
+	font-size: 3vh;                   /* 폰트 크기를 화면 높이 기준으로 설정 */
+	top: 18%;                         /* 상단에서 18% 떨어진 위치 */
+	z-index: 100;                     /* Z-축에서 앞에 위치 */
+  width: auto;                      /* 너비 자동 설정 */
+  padding: 2%;                      /* 내부 여백을 부모 요소 너비 설정 */
+	color: rgb(187, 187, 187);      /* 텍스트 색상 */
+	text-shadow: 8px 8px 4px black; /* 검정색 그림자 효과 */
+	text-align: center;               /* 텍스트 가운데 정렬 */
+}
+
+.cart-item {
+  display: flex; /* 장바구니 항목을 flexbox로 가로 방향으로 배치 */
+  justify-content: space-between; /* 장바구니 항목의 내용이 양 끝에 배치되도록 설정 */
+  padding: 10px; /* 장바구니 항목의 안쪽에 10px의 패딩을 추가 */
+  border-bottom: 1px solid #ddd; /* 장바구니 항목의 아래에 연한 회색 테두리를 추가 */
+}
+
+#cart-container{
+  margin: 13% 10% 0% 10%;
+}
+
+.cart-item button{
+  color: #000000;
+}
+
+.total-price {
+  font-size: 20px; /* 총 금액의 글자 크기를 20px로 설정 */
+  font-weight: bold; /* 총 금액 글자를 굵게 설정 */
+  text-align: right; /* 총 금액을 오른쪽 정렬 */
+  margin-top: 20px; /* 총 금액 위에 20px의 마진을 추가 */
+  margin-right: 5%;
+}
+
+
+
+/* ------------------------------------- */
+.bg1 {
+  position: absolute;           /* 요소를 절대 위치로 설정 */
+  top: 0;                       /* 상단에 위치 */
+  left: 0;                      /* 왼쪽에 위치 */
+  z-index: -1;                  /* 다른 요소 뒤에 배치 */
+  width: 100%;                  /* 전체 너비 설정 */
+  height: 100%;                 /* 전체 높이 설정 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--back-img); /* 그라데이션과 이미지 배경 설정 */
+  background-attachment: fixed; /* 배경 고정 */
+  background-position: center;  /* 배경 중앙 정렬 */
+  background-size: cover;       /* 배경 이미지의 크기를 요소 크기에 맞춤 */
+  filter: blur(15px);           /* 배경을 흐림 처리 */
+  opacity: 0.3;                 /* 투명도 설정 */
+}
+
+.bg {
+  position: absolute;           /* 요소를 절대 위치로 설정 */
+  top: 0;                       /* 화면 상단에 위치 */
+  left: 0;                      /* 화면 왼쪽에 위치 */
+  z-index: -1;                  /* 다른 요소 뒤에 배치 */
+  width: 100%;                  /* 전체 너비 설정 */
+  height: 100%;                 /* 전체 높이 설정 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), var(--back-img); /* 그라데이션 및 이미지 배경 설정 */
+  background-attachment: fixed; /* 배경 고정 */
+  background-position: center;  /* 배경 중앙 정렬 */
+  background-size: cover;       /* 배경 이미지의 크기를 요소 크기에 맞춤 */
+  filter: blur(8px);            /* 배경을 흐림 처리 */
+  opacity: 0.3;                 /* 투명도 설정 */
+}
+
+/* ------------------------------------- */

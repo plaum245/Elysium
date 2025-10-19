@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <nav class="navbar"> <!------ 01 ------>
+      <div id="navbar_logo">
+        <a href="#" id="favicon">
+          Elysium
+        </a>
+      </div>
+      <ul class="navbar__menu">
+        <li><a href="#" class="nav_link">Home</a></li>
+        <li><a href="#scroll2" class="nav_link scroll_move">Event</a></li>
+        <li><a href="#scroll3" class="nav_link scroll_move">About</a></li>
+        <li><a href="#scroll4" class="nav_link scroll_move">Menu</a></li>
+      </ul>
+      <ul class="navbar__icons">
+        <li><img src="images/facebook.png" width="20px" style="filter: invert(100%);"></li>
+        <li><img src="images/instagram.png" width="20px" style="filter: invert(100%);"></li>
+        <li><a href="Login.html" class="fab fa-google" id='signin-btn'>sign up</a></li>
+        <li><a href="Login.html" class="fab fa-slack" id='login-btn'>log in</a></li>
+      </ul>
+    </nav>
+    
+
+    <article class="content">
+      <div class="bg1"></div>
+      <div class="Header">
+        <img class="scroll_on" id="bag-image" src="./images/first-img.png" height="100%">
+        <h1 class="scroll_on type_top" id="Header">Elysium</h1>
+        <a href="#scroll3">
+          <input class="scroll_on type_bottom" id="story" type="button" value="story">
+        </a>
+        
+      </div>
+    </article>
+
+    <article class="content" id="scroll2">  <!---- 02 ---->
+      <div class="app scroll_on">
+        <div class="page_title">event of this Month</div>
+        <div class="cardList">
+          <button class="cardList__btn btn btn--left">
+            <div class="icon">
+              <svg>
+                <use xlink:href="#arrow-left"></use> <!--요소 <use>는 SVG 문서 내에서 노드를 가져와 다른 곳에 복제합니다.-->
+              </svg>
+            </div>
+          </button>
+
+          <div class="cards__wrapper">
+            <div class="card current--card">
+              <div class="card__image">
+                <img src="./images/card__image01.png" alt="" />
+              </div>
+            </div>
+
+            <div class="card next--card">
+              <div class="card__image">
+                <img src="./images/card__image02.png" alt="" />
+              </div>
+            </div>
+
+            <div class="card previous--card">
+              <div class="card__image">
+                <img src="./images/card__image03.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <button class="cardList__btn btn btn--right">
+            <div class="icon">
+              <svg>
+                <use xlink:href="#arrow-right"></use>
+              </svg>
+            </div>
+          </button>
+        </div>
+
+        <div class="infoList">
+          <div class="info__wrapper">
+            <div class="info current--info">
+              <h1 class="text name">new Menu</h1>
+              <h4 class="text location">winter season</h4>
+              <p class="text description">부드럽고 포근한 음식</p>
+            </div>
+        
+            <div class="info next--info">
+              <h1 class="text name">event</h1>
+              <h4 class="text location">a coffee tasting event</h4>
+              <p class="text description">새로운 커피 시음</p>
+            </div>
+        
+            <div class="info previous--info">
+              <h1 class="text name">event</h1>
+              <h4 class="text location">Welcome 2025</h4>
+              <p class="text description">Happy New Year!</p>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="app__bg">
+          <div class="app__bg__image current--image">
+            <img src="./images/card__image01.png" alt="" />
+          </div>
+          <div class="app__bg__image next--image">
+            <img src="./images/card__image02.png" alt="" />
+          </div>
+          <div class="app__bg__image previous--image">
+            <img src="./images/card__image03.png" alt="" />
+          </div>
+        </div>
+      </div>   
+    
+      <svg class="icons" style="display: none;">
+        <symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+          <polyline points='328 112 184 256 328 400' style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+        </symbol>
+        <symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+          <polyline points='184 112 328 256 184 400' style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+        </symbol>
+      </svg>
+    </article>
+
+    <article class="content" id="scroll3"> <!---- 03 ---->
+      <div class="bg1"></div>
+      <div class="Header">
+        <img class="scroll_on type_right" id="bag-image" src="./images/second-img.png" height="100%">
+        <h1 class="scroll_on type_top" id="Header">Elysium story</h1>
+        <input href="#scroll4" class="scroll_on type_bottom" id="story" type="button" value="about">
+      </div>
+    </article>
+
+    <article class="content" id="scroll4"> <!---- 04 ---->
+      <div class="bg"></div>
+      <div class="card-container scroll_on type_left">
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <a href="Menu.html#scroll3">
+            <img src="./images/coffee.jpeg" alt="coffee">
+          </a>
+          
+          <div class="text-wrap">
+            <h1>Coffee</h1>
+            <p>#Americano #Cafe latte</p>
+          </div>
+      </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <a href="Menu.html#scroll4"> 
+            <img src="./images/juice.jpeg" alt="waffle">
+          </a>
+         
+            <div class="text-wrap">
+              <h1>Beverage</h1>
+              <p>#Ade #juice</p>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <a href="Menu.html#scroll5">
+            <img src="./images/cake.jpeg" alt="cake">
+          </a>
+          
+            <div class="text-wrap">
+              <h1>cake</h1>
+              <p>#cake </p>
+            </div>
+        </div>
+
+        <div class="card-box2">
+          <div class="img-gradient"></div>
+          <a href="Menu.html#scroll6">
+            <img src="./images/waffle.jpeg" alt="">
+          </a>
+          
+            <div class="text-wrap">
+              <h1>waffle</h1>
+              <p>#waffle </p>
+            </div>
+        </div>
+      </div>
+    </article>
+    
+    <footer class="content scroll_on type_bottom" role="contentinfo">  <!---- 05 ---->
+      <div class="footer__inner ">
+        <div class="footer__text">
+          <span>22101464</span>
+          <span>© Lee jihui</span>
+        </div>
+        <div class="footer__info">
+          <div class="left">
+            <div class="title">
+              <a href="#">sign up</a>
+            </div>
+            <p>"Elysium" is derived from the ancient Greek word and means <br>
+              'a place of peace and happiness.' It wants to help people<br>
+              feel a little peace and happiness in their daily lives.</p>
+            <ui class="sci">
+              <li><img src="./images/instagram.png"></li>
+              <li><img src="./images/facebook.png"></li>
+              <li><img src="./images/twitter-alt.png"></li>
+              <li><img src="./images/discord.png"></li>
+            </ui>
+          </div>
+          <div class="right">
+            <div class="one">
+              <h3>Help</h3>
+              <ul>
+                <li>
+                  <a>Support</a>
+                  <em>Support You</em>
+                </li>
+                <li>
+                  <a >FAQs</a>
+                  <em>FAQs adout this page</em>
+                </li>
+                <li>
+                  <a>Follow</a>
+                  <em>Follow</em>
+                </li>
+                <li>
+                  <a>Merchandising License</a>
+                  <em>Merchandising License</em>
+                </li>
+              </ul>
+            </div>
+            <div class="two">
+              <h3>About</h3>
+              <ul>
+                <li>
+                  <a >About Us</a>
+                  <em>About Us</em>
+                </li>
+                <li>
+                  <a>FAQ</a>
+                  <em>FAQ</em>
+                </li>
+                <li>
+                  <a>License Summary</a>
+                  <em>FAQ</em>
+                </li>
+                <li>
+                  <a>Terms of Service</a>
+                  <em>Terms of Service</em>
+                </li>
+                <li>
+                  <a>Privacy Policy</a>
+                  <em>Privacy Policy</em>
+                </li>
+                <li>
+                  <a>Cookies Policy</a>
+                  <em>Cookies Policy</em>
+                </li>
+                <li>
+                  <a>API</a>
+                  <em>API</em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__right">
+          Copright © 2003-2024<br>
+          Elysium Company S.L protected by copyright law
+        </div>
+      </div>
+    </footer>
+
+    <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script  src="script.js"></script>
+  </body>
+</html>

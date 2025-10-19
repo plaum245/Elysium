@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium</title>
+    <link rel="stylesheet" href="Login.css">
+  </head>
+
+  <body>
+    <nav class="navbar"> <!------ 01 ------>
+      <div id="navbar_logo">
+        <a href="index.html" id="favicon">
+          Elysium
+        </a>
+      </div>
+      <ul class="navbar__menu">
+        <li><a href="Main.html" class="nav_link">Home</a></li>
+        <li><a href="Main.html" class="nav_link scroll_move">Event</a></li>
+        <li><a href="Main.html" class="nav_link scroll_move">About</a></li>
+        <li><a href="Menu.html" class="nav_link scroll_move">Menu</a></li>
+      </ul>
+      <ul class="navbar__icons">
+        <li><img src="./images/facebook.png" width="25px" style="filter: invert(100%);"></li>
+        <li><img src="./images/instagram.png" width="25px" style="filter: invert(100%);"></li>
+        <li><a href="#" class="fab fa-google" id='signin-btn'>sign up</a></li>
+        <li><a href="#" class="fab fa-slack" id='login-btn'>log in</a></li>
+      </ul>
+    </nav>
+    
+<!-----------Login-------------------->
+    <article class="content">
+      <div class="container" id="container">
+        <!---------sing up--------------------------->
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                  <a href="#" class="icon"><img src="./images/facebook.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/instagram.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/discord.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/twitter-alt.png" width="20px" style="filter: invert(20%);"></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <from id="login-form"></from>
+                <input type="text" placeholder="ID" style="color: rgb(0, 0, 0);">
+                <input type="email" placeholder="Email" style="color: rgb(0, 0, 0);">
+                <input type="password" placeholder="Password" style="color: rgb(0, 0, 0);">
+                <button>Sign Up</button>
+            </form>
+        </div>
+
+        <!---------------sign in-------------------->
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                  <a href="#" class="icon"><img src="./images/facebook.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/instagram.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/discord.png" width="20px" style="filter: invert(20%);"></a>
+                  <a href="#" class="icon"><img src="./images/twitter-alt.png" width="20px" style="filter: invert(20%);"></a>
+                </div>
+                <input type="text" placeholder="ID" id='user-id' style="color: rgb(0, 0, 0);">
+                <input type="password" placeholder="Password" style="color: rgb(0, 0, 0);">
+                <a href="#">Forget Your Password?</a>
+                <button id='signin' >Sign In</button>
+            </form>
+        </div>
+
+        <!----------------toggle------------------>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script  src="Login.js"></script>
+  </body>
+</html>
